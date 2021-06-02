@@ -20,8 +20,8 @@ cv::Mat average_pooling(cv::Mat img){
     for (int x = 0; x < width; x+=r){
       for (int c = 0; c < channel; c++){
         v = 0;
-        for (int dy = 0; dy < r; dy++){
-          for (int dx = 0; dx < r; dx++){
+        for (int dy = 0; dy < r && (y+dy); dy++){
+          for (int dx = 0; dx < r && (x+dx); dx++){
             v += (double)img.at<cv::Vec3b>(y + dy, x + dx)[c];
           }
         }
